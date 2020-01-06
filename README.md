@@ -1,2 +1,5 @@
 # Practice
-only for practice purpose
+
+Basic Temlates
+*React
+*React Typescript
