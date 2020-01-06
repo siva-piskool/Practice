@@ -1,44 +1,52 @@
-import React from 'react';
+import React from "react";
 import useForm from "./useForm";
-import validate from './LoginFormValidationRules';
+import validate from "./LoginFormValidationRules";
 
 const Form = () => {
-  const {
-    values,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = useForm(login, validate);
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    login,
+    validate
+  );
 
   function login() {
-    console.log('No errors, submit callback called!');
+    console.log("No errors, submit callback called!");
   }
 
   return (
     <div className="section is-fullheight">
-      <div className="container">
-        <div className="column is-4 is-offset-4">
-          <div className="box">
+      <div>
+        <div>
+          <div>
             <form onSubmit={handleSubmit} noValidate>
-              <div className="field">
-                <label className="label">Email Address</label>
-                <div className="control">
-                  <input autoComplete="off" className={`input ${errors.email && 'is-danger'}`} type="email" name="email" onChange={handleChange} value={values.email || ''} required />
-                  {errors.email && (
-                    <p className="help is-danger">{errors.email}</p>
-                  )}
+              <div>
+                <label>Email Address</label>
+                <div>
+                  <input
+                    autoComplete="off"
+                    className={`input ${errors.email && "is-danger"}`}
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={values.email || ""}
+                    required
+                  />
+                  {errors.email && <p>{errors.email}</p>}
                 </div>
               </div>
-              <div className="field">
-                <label className="label">Password</label>
-                <div className="control">
-                  <input className={`input ${errors.password && 'is-danger'}`} type="password" name="password" onChange={handleChange} value={values.password || ''} required />
+              <div>
+                <label>Password</label>
+                <div>
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={handleChange}
+                    value={values.password || ""}
+                    required
+                  />
                 </div>
-                {errors.password && (
-                  <p className="help is-danger">{errors.password}</p>
-                )}
+                {errors.password && <p>{errors.password}</p>}
               </div>
-              <button type="submit" className="button is-block is-info is-fullwidth">Login</button>
+              <button type="submit">Login</button>
             </form>
           </div>
         </div>
